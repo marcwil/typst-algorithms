@@ -36,6 +36,8 @@
 //   inset: Inner padding.
 //   fill: Fill color.
 //   stroke: Border stroke.
+//   algoalign: Alignment of algo block
+//   algowidth: Width of algo block
 #let algo(
   body,
   title: none,
@@ -47,7 +49,9 @@
   column-gutter: 10pt,
   inset: 10pt,
   fill: rgb(98%, 98%, 98%),
-  stroke: 1pt + rgb(50%, 50%, 50%)
+  stroke: 1pt + rgb(50%, 50%, 50%),
+  algoalign: left,
+  algowidth: 100%
 ) = {
   set par(justify: false)
   counter("_algo-indent").update(0)
@@ -193,8 +197,8 @@
     rows.push(formatted-line)
   }
 
-  align(center, block(
-    width: auto,
+  align(algoalign, block(
+    width: algowidth,
     height: auto,
     fill: fill,
     stroke: stroke,
